@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
@@ -14,7 +15,20 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@games/authenticator/backend/application/use-cases": [
+        "packages/authenticator/backend/application/use-cases/src/index.ts"
+      ],
+      "@games/authenticator/backend/repository/memory-repository": [
+        "packages/authenticator/backend/repository/memory-repository/src/index.ts"
+      ],
+      "@games/authenticator/backend/repository/mongo-repository": [
+        "packages/authenticator/backend/repository/mongo-repository/src/index.ts"
+      ],
+      "@games/authenticator/core/domain": [
+        "packages/authenticator/core/domain/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

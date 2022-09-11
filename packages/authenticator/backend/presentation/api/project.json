@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/authenticator/backend/presentation/api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/authenticator/backend/presentation/api",
+        "main": "packages/authenticator/backend/presentation/api/src/main.ts",
+        "tsConfig": "packages/authenticator/backend/presentation/api/tsconfig.app.json",
+        "assets": ["packages/authenticator/backend/presentation/api/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "packages/authenticator/backend/presentation/api/src/environments/environment.ts",
+              "with": "packages/authenticator/backend/presentation/api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "authenticator-backend-presentation-api:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "authenticator-backend-presentation-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/authenticator/backend/presentation/api/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/authenticator/backend/presentation/api"],
+      "options": {
+        "jestConfig": "packages/authenticator/backend/presentation/api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["backend"]
+}

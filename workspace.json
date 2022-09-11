@@ -1,5 +1,13 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "authenticator-backend-application-use-cases": "packages/authenticator/backend/application/use-cases",
+    "authenticator-backend-presentation-api": "packages/authenticator/backend/presentation/api",
+    "authenticator-backend-repository-memory-repository": "packages/authenticator/backend/repository/memory-repository",
+    "authenticator-backend-repository-mongo-repository": "packages/authenticator/backend/repository/mongo-repository",
+    "authenticator-core-domain": "packages/authenticator/core/domain",
+    "authenticator-frontend-ui": "packages/authenticator/frontend/ui",
+    "authenticator-frontend-ui-e2e": "packages/authenticator/frontend/ui-e2e"
+  }
 }
